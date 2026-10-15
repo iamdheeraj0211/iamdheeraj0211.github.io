@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img">
+  <!-- Abstract art for Bizznify until real screenshots are ready (not a fake UI). -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2a25"/>
+      <stop offset="1" stop-color="#0b1d2c"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.7" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="440" rx="20" fill="url(#bg)"/>
+  <rect width="640" height="440" rx="20" fill="url(#glow)"/>
+  <g stroke="#ffffff" stroke-opacity="0.06">
+    <path d="M0 110H640M0 220H640M0 330H640M160 0V440M320 0V440M480 0V440"/>
+  </g>
+  <path d="M60 330 C140 300 170 230 250 240 S380 170 440 150 S560 90 590 70" fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#34d399">
+    <circle cx="60" cy="330" r="8"/>
+    <circle cx="250" cy="240" r="8"/>
+    <circle cx="440" cy="150" r="8"/>
+    <circle cx="590" cy="70" r="8" fill="#38bdf8"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.9" font-family="Inter, Segoe UI, Arial, sans-serif">
+    <text x="48" y="78" font-size="34" font-weight="800">Bizznify</text>
+    <text x="48" y="108" font-size="17" fill-opacity="0.65">Trips · Inventory · Billing · Reports</text>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.08">
+    <rect x="48" y="360" width="150" height="40" rx="10"/>
+    <rect x="214" y="360" width="150" height="40" rx="10"/>
+    <rect x="380" y="360" width="150" height="40" rx="10"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.75" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600">
+    <text x="72" y="386">Logistics</text>
+    <text x="238" y="386">Inventory</text>
+    <text x="404" y="386">Billing</text>
+  </g>
+</svg>
