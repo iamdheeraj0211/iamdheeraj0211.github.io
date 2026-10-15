@@ -22,6 +22,8 @@
 </head>
 <body>
   <div class="mouse-glow" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="nav" id="top">
@@ -74,132 +76,135 @@ react · docker · aws</span>
 
     <section class="section" id="products" aria-labelledby="products-title">
       <div class="wrap">
-        <p class="eyebrow reveal">Products</p>
-        <h2 id="products-title" class="section__title reveal">Things I've built and shipped</h2>
-
-        <article class="product reveal" aria-labelledby="ea-title">
-          <div class="product__text">
-            <p class="product__kind">Chrome extension</p>
-            <h3 id="ea-title" class="product__name">EarlyApply</h3>
-            <p class="product__lead">Helps job seekers be early applicants on LinkedIn: see jobs posted minutes ago, hide the noise, and get an alert the moment a new job appears.</p>
-            <ul class="product__features">
-              <li>Job Radar watches a search in the background and sends desktop alerts</li>
-              <li>Filters for fresh jobs, staffing agencies and reposts</li>
-              <li>Saved answers ready to copy beside every Easy Apply form</li>
-              <li>Privacy-first: no server, everything stays in the browser</li>
-            </ul>
-            <ul class="tags" aria-label="Built with">
-              <li>JavaScript</li><li>Manifest V3</li><li>670+ tests</li><li>No tracking</li>
-            </ul>
-            <div class="product__links">
-              <a class="btn btn--small btn--primary" href="https://iamdheeraj0211.github.io/earlyapply/">Visit EarlyApply</a>
+        <div class="section__head reveal">
+          <p class="eyebrow">Products</p>
+          <h2 id="products-title" class="section__title">Things I've built and shipped</h2>
+        </div>
+        <div class="products">
+          <article class="product reveal" aria-labelledby="ea-title">
+            <div class="product__media">
+              <figure class="shot shot--main"><img src="assets/earlyapply-1.png" width="880" height="720" alt="EarlyApply on a LinkedIn job search: time filters, hide toggles and highlighted fresh jobs" loading="lazy"></figure>
+              <figure class="shot shot--a"><img src="assets/earlyapply-2.png" width="880" height="720" alt="Job Radar panel listing new jobs, with a desktop alert" loading="lazy"></figure>
+              <figure class="shot shot--b"><img src="assets/earlyapply-4.png" width="880" height="720" alt="Saved answers card beside an Easy Apply form" loading="lazy"></figure>
             </div>
-          </div>
-          <div class="product__media">
-            <figure class="shot shot--main"><img src="assets/earlyapply-1.png" width="880" height="720" alt="EarlyApply on a LinkedIn job search: time filters, hide toggles and highlighted fresh jobs" loading="lazy"></figure>
-            <figure class="shot shot--a"><img src="assets/earlyapply-2.png" width="880" height="720" alt="Job Radar panel listing new jobs, with a desktop alert" loading="lazy"></figure>
-            <figure class="shot shot--b"><img src="assets/earlyapply-4.png" width="880" height="720" alt="Saved answers card beside an Easy Apply form" loading="lazy"></figure>
-          </div>
-        </article>
-
-        <article class="product product--flip reveal" aria-labelledby="bz-title">
-          <div class="product__text">
-            <p class="product__kind">Web app <span class="badge">Launching soon</span></p>
-            <h3 id="bz-title" class="product__name">Bizznify ERP</h3>
-            <p class="product__lead">An ERP for transport logistics and inventory businesses: trips, stock, billing and reports in one place, for multiple client companies.</p>
-            <ul class="product__features">
-              <li>Role-based access for each team and client company</li>
-              <li>Automated PDF reports and third-party data sync in the background</li>
-              <li>React frontend on a Django REST API</li>
-              <li>Dockerized and deployed on AWS with CI/CD</li>
-            </ul>
-            <ul class="tags" aria-label="Built with">
-              <li>Django</li><li>DRF</li><li>PostgreSQL</li><li>Celery</li><li>Redis</li><li>React</li><li>Docker</li><li>AWS</li>
-            </ul>
-          </div>
-          <div class="product__media product__media--art" aria-hidden="true">
-            <img src="assets/bizznify-placeholder.svg" width="640" height="440" alt="" loading="lazy">
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="experience" aria-labelledby="experience-title">
-      <div class="wrap">
-        <p class="eyebrow reveal">Experience</p>
-        <h2 id="experience-title" class="section__title reveal">Where I've worked</h2>
-        <ol class="timeline">
-          <li class="timeline__item reveal">
-            <div class="timeline__head">
-              <h3>Founder &amp; Developer <span>· Bizznify</span></h3>
-              <p class="timeline__when">Jan 2026 – Present · Mumbai</p>
+            <div class="product__text">
+              <p class="product__kind">Chrome extension</p>
+              <h3 id="ea-title" class="product__name">EarlyApply</h3>
+              <p class="product__lead">Helps job seekers be early applicants on LinkedIn: fresh jobs first, less noise, and an alert the moment a new job appears.</p>
+              <ul class="product__features">
+                <li>Background job alerts with desktop notifications</li>
+                <li>Filters for fresh jobs, agencies and reposts</li>
+                <li>Saved answers beside every Easy Apply form</li>
+                <li>No server: everything stays in the browser</li>
+              </ul>
+              <ul class="tags" aria-label="Built with"><li>JavaScript</li><li>Manifest V3</li><li>670+ tests</li><li>No tracking</li></ul>
+              <div class="product__links">
+                <a class="btn btn--small btn--primary" href="https://iamdheeraj0211.github.io/earlyapply/">Visit EarlyApply</a>
+              </div>
             </div>
-            <ul>
-              <li>Designed the database schema and backend in Django for logistics, inventory and billing workflows.</li>
-              <li>Built REST APIs with Django REST Framework and JWT authentication, with role-based access for multiple client companies.</li>
-              <li>Moved slow work to Celery and Redis: PDF reports and third-party data sync with automatic retries.</li>
-              <li>Built the React frontend on top of the APIs, and set up Docker deployments on AWS with GitHub Actions.</li>
-            </ul>
-          </li>
-          <li class="timeline__item reveal">
-            <div class="timeline__head">
-              <h3>Backend Developer <span>· Codezen Tech Solutions</span></h3>
-              <p class="timeline__when">Sep 2023 – Dec 2025 · Mumbai</p>
+          </article>
+
+          <article class="product reveal" aria-labelledby="bz-title">
+            <div class="product__media product__media--art" aria-hidden="true">
+              <img src="assets/bizznify-placeholder.svg" width="640" height="440" alt="" loading="lazy">
             </div>
-            <ul>
-              <li>Built core modules of GRAEON, a multi-tenant B2B ERP used by 100+ companies, as part of the backend team, keeping each client's data isolated with PostgreSQL schemas.</li>
-              <li>Optimized slow API endpoints and database queries, ending dashboard timeouts during peak accounting periods.</li>
-              <li>Fixed race conditions in stock recalculation across warehouses, keeping inventory accurate under heavy use.</li>
-              <li>Built a real-time vehicle tracking pipeline for 100 to 500 vehicles, with Redis and background workers for route analytics.</li>
-              <li>Integrated the ERP with Tally for accounting data sync, and built reporting APIs covered by PyTest tests.</li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section" id="skills" aria-labelledby="skills-title">
-      <div class="wrap">
-        <p class="eyebrow reveal">Skills</p>
-        <h2 id="skills-title" class="section__title reveal">What I work with</h2>
-        <div class="skills">
-          <div class="skills__group reveal"><h3>Languages</h3><ul class="tags"><li>Python</li><li>SQL</li><li>JavaScript</li></ul></div>
-          <div class="skills__group reveal"><h3>Backend</h3><ul class="tags"><li>Django</li><li>Django REST Framework</li><li>REST APIs</li></ul></div>
-          <div class="skills__group reveal"><h3>Async &amp; caching</h3><ul class="tags"><li>Celery</li><li>Redis</li></ul></div>
-          <div class="skills__group reveal"><h3>Databases</h3><ul class="tags"><li>PostgreSQL</li><li>Query optimization</li><li>Indexing</li><li>Transactions</li></ul></div>
-          <div class="skills__group reveal"><h3>Frontend</h3><ul class="tags"><li>React</li><li>HTML/CSS</li><li>Chrome Extensions</li></ul></div>
-          <div class="skills__group reveal"><h3>Cloud &amp; DevOps</h3><ul class="tags"><li>Docker</li><li>AWS (EC2, S3, RDS)</li><li>Linux</li><li>Nginx</li><li>GitHub Actions</li></ul></div>
-          <div class="skills__group reveal"><h3>Testing &amp; tools</h3><ul class="tags"><li>PyTest</li><li>Git</li><li>Postman</li></ul></div>
+            <div class="product__text">
+              <p class="product__kind">Web app <span class="badge">Launching soon</span></p>
+              <h3 id="bz-title" class="product__name">Bizznify ERP</h3>
+              <p class="product__lead">An ERP for transport logistics and inventory businesses: trips, stock, billing and reports in one place.</p>
+              <ul class="product__features">
+                <li>Role-based access for each team and client company</li>
+                <li>Automated PDF reports and data sync in the background</li>
+                <li>React frontend on a Django REST API</li>
+                <li>Dockerized and deployed on AWS with CI/CD</li>
+              </ul>
+              <ul class="tags" aria-label="Built with"><li>Django</li><li>DRF</li><li>PostgreSQL</li><li>Celery</li><li>Redis</li><li>React</li><li>AWS</li></ul>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" id="about" aria-labelledby="about-title">
-      <div class="wrap about">
-        <div>
-          <p class="eyebrow reveal">About</p>
-          <h2 id="about-title" class="section__title reveal">A bit about me</h2>
+    <section class="section section--alt" aria-label="Experience and skills">
+      <div class="wrap split">
+        <div id="experience">
+          <div class="section__head reveal">
+            <p class="eyebrow">Experience</p>
+            <h2 class="section__title">Where I've worked</h2>
+          </div>
+          <ol class="timeline">
+            <li class="timeline__item reveal">
+              <div class="timeline__head">
+                <h3>Founder &amp; Developer <span>· Bizznify</span></h3>
+                <p class="timeline__when">Jan 2026 – Present</p>
+              </div>
+              <ul>
+                <li>Designed the schema and Django backend for logistics, inventory and billing.</li>
+                <li>REST APIs with DRF and JWT, role-based access for multiple client companies.</li>
+                <li>Background jobs with Celery and Redis: PDF reports, data sync with retries.</li>
+                <li>React frontend, Docker deployments on AWS with GitHub Actions.</li>
+              </ul>
+            </li>
+            <li class="timeline__item reveal">
+              <div class="timeline__head">
+                <h3>Backend Developer <span>· Codezen Tech Solutions</span></h3>
+                <p class="timeline__when">Sep 2023 – Dec 2025</p>
+              </div>
+              <ul>
+                <li>Built core modules of GRAEON, a multi-tenant ERP used by 100+ companies, with the backend team.</li>
+                <li>Optimized slow APIs and queries, ending dashboard timeouts at peak times.</li>
+                <li>Fixed race conditions in stock recalculation across warehouses.</li>
+                <li>Real-time vehicle tracking for 100 to 500 vehicles with Redis and workers.</li>
+                <li>Tally integration for accounting sync; reporting APIs tested with PyTest.</li>
+              </ul>
+            </li>
+          </ol>
         </div>
-        <div class="about__text reveal">
-          <p>I'm a Python developer from Mumbai, mostly working with Django, PostgreSQL and AWS, and React on the frontend.</p>
-          <p>I've worked on ERP systems, multi-tenant platforms, real-time tracking and reporting APIs, the kind of backend work where performance and data accuracy really matter. I enjoy that part: making slow things fast and complex things reliable.</p>
-          <p>Lately I've been building my own products end to end. Still learning, still building.</p>
-          <p class="about__open">Open to full-time roles and freelance work.</p>
+
+        <div id="skills">
+          <div class="section__head reveal">
+            <p class="eyebrow">Skills</p>
+            <h2 class="section__title">What I work with</h2>
+          </div>
+          <dl class="stack reveal">
+            <div><dt>Languages</dt><dd><ul class="tags"><li>Python</li><li>SQL</li><li>JavaScript</li></ul></dd></div>
+            <div><dt>Backend</dt><dd><ul class="tags"><li>Django</li><li>Django REST Framework</li><li>REST APIs</li></ul></dd></div>
+            <div><dt>Async</dt><dd><ul class="tags"><li>Celery</li><li>Redis</li></ul></dd></div>
+            <div><dt>Databases</dt><dd><ul class="tags"><li>PostgreSQL</li><li>Query optimization</li><li>Indexing</li></ul></dd></div>
+            <div><dt>Frontend</dt><dd><ul class="tags"><li>React</li><li>HTML/CSS</li><li>Chrome Extensions</li></ul></dd></div>
+            <div><dt>Cloud</dt><dd><ul class="tags"><li>Docker</li><li>AWS</li><li>Linux</li><li>Nginx</li><li>GitHub Actions</li></ul></dd></div>
+            <div><dt>Testing</dt><dd><ul class="tags"><li>PyTest</li><li>Git</li><li>Postman</li></ul></dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="wrap contact__inner reveal">
-        <h2 id="contact-title" class="contact__title">Let's talk</h2>
-        <p class="contact__line">Have a role, a project or just a question? I'm happy to hear from you.</p>
-        <div class="contact__actions">
-          <a class="btn btn--primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=iamdheeraj0211@gmail.com&amp;su=Hello%20Dheeraj" target="_blank" rel="noopener">Email me</a>
-          <button class="btn" type="button" data-copy="iamdheeraj0211@gmail.com">Copy email</button>
-          <a class="btn btn--ghost" href="https://www.linkedin.com/in/iamdheeraj0211/" rel="noopener">LinkedIn</a>
+    <section class="section" aria-label="About and contact">
+      <div class="wrap split split--even">
+        <div id="about" class="about">
+          <div class="section__head reveal">
+            <p class="eyebrow">About</p>
+            <h2 class="section__title">A bit about me</h2>
+          </div>
+          <div class="about__text reveal">
+            <p>I'm a Python developer from Mumbai, mostly working with Django, PostgreSQL and AWS, and React on the frontend.</p>
+            <p>I've worked on ERP systems, multi-tenant platforms, real-time tracking and reporting APIs, where performance and data accuracy really matter. I enjoy making slow things fast and complex things reliable.</p>
+            <p>Lately I've been building my own products end to end. Still learning, still building.</p>
+          </div>
         </div>
-        <p class="contact__email">iamdheeraj0211@gmail.com <span class="copied" role="status" aria-live="polite"></span></p>
-        <p class="contact__alt">Opens Gmail in a new tab, or <a href="mailto:iamdheeraj0211@gmail.com?subject=Hello%20Dheeraj">use your mail app</a>.</p>
+
+        <div id="contact" class="contact__inner reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 class="contact__title">Let's talk</h2>
+          <p class="contact__line">Open to full-time roles and freelance work. Have a role, a project or a question? I'm happy to hear from you.</p>
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=iamdheeraj0211@gmail.com&amp;su=Hello%20Dheeraj" target="_blank" rel="noopener">Email me</a>
+            <button class="btn" type="button" data-copy="iamdheeraj0211@gmail.com">Copy email</button>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/iamdheeraj0211/" rel="noopener">LinkedIn</a>
+          </div>
+          <p class="contact__email">iamdheeraj0211@gmail.com <span class="copied" role="status" aria-live="polite"></span></p>
+          <p class="contact__alt">Opens Gmail in a new tab, or <a href="mailto:iamdheeraj0211@gmail.com?subject=Hello%20Dheeraj">use your mail app</a>.</p>
+        </div>
       </div>
     </section>
   </main>

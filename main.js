@@ -102,25 +102,59 @@
     })();
   }
 
-  // A soft glow follows the mouse; cards light up where the pointer is.
+  // Mouse users: a sharp dot at the pointer, a ring that follows smoothly,
+  // a soft glow behind, and cards that light up where the pointer is.
   if (!calm && window.matchMedia('(pointer: fine)').matches) {
     const glow = document.querySelector('.mouse-glow');
-    let x = 0;
-    let y = 0;
-    let frame = 0;
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    let x = -100;
+    let y = -100;
+    let ringX = x;
+    let ringY = y;
+    let glowX = x;
+    let glowY = y;
+    let running = false;
+    const follow = () => {
+      // The ring and glow ease toward the pointer; the dot is exactly on it.
+      ringX += (x - ringX) * 0.2;
+      ringY += (y - ringY) * 0.2;
+      glowX += (x - glowX) * 0.08;
+      glowY += (y - glowY) * 0.08;
+      if (ring) ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+      if (glow) glow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
+      const moving = Math.abs(x - ringX) + Math.abs(y - ringY) + Math.abs(x - glowX) + Math.abs(y - glowY) > 0.5;
+      if (moving) requestAnimationFrame(follow);
+      else running = false;
+    };
     window.addEventListener('pointermove', (event) => {
       x = event.clientX;
       y = event.clientY;
+      if (dot) dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      if (!document.documentElement.classList.contains('has-cursor')) {
+        ringX = glowX = x; // first move: start right at the pointer
+        ringY = glowY = y;
+        document.documentElement.classList.add('has-cursor');
+      }
       if (glow) glow.classList.add('is-on');
-      if (!frame) {
-        frame = requestAnimationFrame(() => {
-          frame = 0;
-          if (glow) glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-        });
+      if (!running) {
+        running = true;
+        requestAnimationFrame(follow);
       }
     }, { passive: true });
-    document.addEventListener('pointerleave', () => glow && glow.classList.remove('is-on'));
-    document.querySelectorAll('.product, .skills__group').forEach((card) => {
+    document.addEventListener('pointerleave', () => {
+      document.documentElement.classList.remove('has-cursor');
+      if (glow) glow.classList.remove('is-on');
+    });
+    // Over anything clickable the ring grows; pressing makes it pulse.
+    document.addEventListener('pointerover', (event) => {
+      const onLink = Boolean(event.target.closest && event.target.closest('a, button'));
+      if (ring) ring.classList.toggle('is-link', onLink);
+      if (dot) dot.classList.toggle('is-link', onLink);
+    });
+    window.addEventListener('pointerdown', () => ring && ring.classList.add('is-down'));
+    window.addEventListener('pointerup', () => ring && ring.classList.remove('is-down'));
+    document.querySelectorAll('.product, .stack, .contact__inner').forEach((card) => {
       card.addEventListener('pointermove', (event) => {
         const box = card.getBoundingClientRect();
         card.style.setProperty('--mx', `${event.clientX - box.left}px`);
