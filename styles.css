@@ -48,7 +48,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.65 Inter, -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 16.5px/1.65 "Space Grotesk", -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -81,7 +81,7 @@ p { margin: 0; }
 .nav__brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .nav__mark {
   display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #04121c; font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #04121c; font-weight: 700;
 }
 .nav__links { display: flex; align-items: center; gap: 6px; list-style: none; }
 .nav__links a {
@@ -149,7 +149,7 @@ p { margin: 0; }
 .term__bar span { margin-left: 8px; color: var(--muted); font-size: 13px; }
 .term__body {
   margin: 0; padding: 18px 20px 22px; white-space: pre-wrap;
-  font: 14px/1.75 ui-monospace, "Cascadia Code", "JetBrains Mono", Consolas, monospace; color: var(--text);
+  font: 14px/1.75 "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace; color: var(--text);
 }
 .term__body .p { color: var(--accent); }
 .term__body .o { color: var(--muted); }
@@ -159,7 +159,7 @@ p { margin: 0; }
 @media (max-width: 1100px) { .term { display: none; } }
 .hero__hello { color: var(--accent); font-weight: 600; letter-spacing: .02em; }
 .hero__name {
-  margin-top: 8px; font-size: clamp(44px, 8vw, 84px); font-weight: 800; letter-spacing: -0.035em;
+  margin-top: 8px; font-size: clamp(44px, 8vw, 84px); font-weight: 700; letter-spacing: -0.04em;
   background: linear-gradient(120deg, var(--text) 30%, color-mix(in srgb, var(--accent) 60%, var(--text)));
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
@@ -179,7 +179,7 @@ p { margin: 0; }
 .section { padding: 96px 0; }
 .section--alt { background: var(--bg-alt); }
 .eyebrow { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
-.section__title { margin-top: 10px; font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em; }
+.section__title { margin-top: 10px; font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; }
 
 /* ---------- Products ---------- */
 .product {
@@ -194,7 +194,7 @@ p { margin: 0; }
   padding: 3px 10px; border-radius: 999px; font-size: 12px; letter-spacing: .02em; text-transform: none;
   color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 14%, transparent);
 }
-.product__name { margin-top: 8px; font-size: clamp(28px, 3.4vw, 36px); font-weight: 800; letter-spacing: -0.02em; }
+.product__name { margin-top: 8px; font-size: clamp(28px, 3.4vw, 36px); font-weight: 700; letter-spacing: -0.02em; }
 .product__lead { margin-top: 12px; color: var(--muted); font-size: 17px; }
 .product__features { margin-top: 20px; list-style: none; display: grid; gap: 10px; }
 .product__features li { position: relative; padding-left: 26px; }
@@ -265,7 +265,7 @@ p { margin: 0; }
     var(--surface);
   border: 1px solid var(--border);
 }
-.contact__title { font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -0.03em; }
+.contact__title { font-size: clamp(32px, 5vw, 52px); font-weight: 700; letter-spacing: -0.03em; }
 .contact__line { margin: 12px auto 0; max-width: 520px; color: var(--muted); font-size: 18px; }
 .contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
 .contact__email { margin-top: 18px; color: var(--muted); font-size: 15px; }
@@ -274,6 +274,31 @@ p { margin: 0; }
 /* ---------- Footer ---------- */
 .footer { padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
 .footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 1px solid var(--border); padding-top: 24px; }
+
+/* ---------- Glow that follows the mouse (desktop, motion allowed) ---------- */
+.mouse-glow {
+  position: fixed; left: 0; top: 0; z-index: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px;
+  border-radius: 50%; pointer-events: none; opacity: 0;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%);
+  transition: opacity .4s;
+  will-change: transform;
+}
+.mouse-glow.is-on { opacity: 1; }
+main, .footer { position: relative; z-index: 1; }
+
+/* Cards light up where the mouse is. */
+.product, .skills__group, .contact__inner { --mx: 50%; --my: 50%; }
+.product::before, .skills__group::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+  background: radial-gradient(420px circle at var(--mx) var(--my), color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
+  transition: opacity .3s;
+}
+.product, .skills__group { position: relative; }
+.product:hover::before, .skills__group:hover::before { opacity: 1; }
+.product > *, .skills__group > * { position: relative; }
+
+/* Typing terminal: blinking caret while it types. */
+.term__body.is-typing .cursor { animation: none; }
 
 /* ---------- Reveal on scroll (only when JS runs) ---------- */
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }

@@ -23,6 +23,9 @@ const JOBS = [
   { name: 'desktop-light', file: 'index.html', width: 1440, height: 900, scheme: 'light', full: true },
   { name: 'mobile-dark', file: 'index.html', width: 390, height: 844, scheme: 'dark', full: true, mobile: true },
   { name: 'desktop-hero', file: 'index.html', width: 1440, height: 900, scheme: 'dark' },
+  // With animations on: the terminal has finished typing by now.
+  { name: 'desktop-hero-typed', file: 'index.html', width: 1440, height: 900, scheme: 'dark', motion: true, wait: 12000 },
+  { name: 'desktop-hero-typing', file: 'index.html', width: 1440, height: 900, scheme: 'dark', motion: true, wait: 3000 },
 ];
 
 (async () => {
@@ -67,10 +70,10 @@ const JOBS = [
     await send('Runtime.enable');
     await send('Page.enable');
     for (const job of JOBS) {
-      await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: job.scheme || 'dark' }, { name: 'prefers-reduced-motion', value: 'reduce' }] });
+      await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: job.scheme || 'dark' }, { name: 'prefers-reduced-motion', value: job.motion ? 'no-preference' : 'reduce' }] });
       await send('Emulation.setDeviceMetricsOverride', { width: job.width, height: job.height, deviceScaleFactor: 1, mobile: Boolean(job.mobile) });
       await send('Page.navigate', { url: url(job.file) });
-      await sleep(1800);
+      await sleep(job.wait || 1800);
       // Show every section (as if scrolled through) and gather layout facts.
       const facts = await send('Runtime.evaluate', {
         returnByValue: true,
