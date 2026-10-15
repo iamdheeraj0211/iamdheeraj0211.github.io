@@ -270,6 +270,8 @@ p { margin: 0; }
 .contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
 .contact__email { margin-top: 18px; color: var(--muted); font-size: 15px; }
 .copied { color: var(--accent); font-weight: 600; margin-left: 6px; }
+.contact__alt { margin-top: 6px; color: var(--muted); font-size: 13px; }
+.contact__alt a { color: var(--accent); }
 
 /* ---------- Footer ---------- */
 .footer { padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
