@@ -350,3 +350,5 @@ main, .footer { position: relative; z-index: 1; }
 }
 .cursor-ring.is-down { width: 24px; height: 24px; margin: -12px 0 0 -12px; }
 .cursor-dot.is-link { opacity: 0; }
+
+.product__logo { width: 40px; height: 40px; margin-right: 12px; vertical-align: middle; border-radius: 10px; }
