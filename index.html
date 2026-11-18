@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -101,30 +101,15 @@
           </div>
         </article>
 
-        <article class="work work--flip reveal" aria-labelledby="bz-title">
-          <div class="work__text">
-            <p class="work__kind">Web app <span class="badge">Launching soon</span></p>
-            <h3 id="bz-title" class="work__name">Bizznify ERP</h3>
-            <p class="work__lead">An ERP for transport logistics and inventory businesses: trips, stock, billing and reports in one place.</p>
-            <ul class="work__list">
-              <li>Role-based access for each team and client company</li>
-              <li>Automated PDF reports and background data sync</li>
-              <li>React frontend on a Django REST API</li>
-              <li>Dockerized and deployed on AWS with CI/CD</li>
-            </ul>
-            <p class="work__built"><b>Built with</b> Django, DRF, PostgreSQL, Celery, Redis, React, AWS</p>
-            <div class="work__links">
-              <a class="btn btn--small" href="https://www.bizznify.com" rel="noopener">bizznify.com</a>
+        <article class="work work--solo reveal" aria-labelledby="bz-title">
+          <div class="work__head">
+            <div>
+              <p class="work__kind">Web app · Live</p>
+              <h3 id="bz-title" class="work__name">Bizznify ERP</h3>
+              <p class="work__lead">An ERP for transport logistics and inventory businesses: trips, stock, billing and reports in one place. One record connects sales, stock, fleet and books.</p>
             </div>
+            <a class="btn btn--primary" href="https://www.bizznify.com" rel="noopener">Visit bizznify.com</a>
           </div>
-          <div class="work__media">
-            <img src="assets/bizznify.png" width="1200" height="630" alt="Bizznify: sales, stock, fleet and books, finally connected. Cloud ERP for small and growing businesses" loading="lazy">
-          </div>
-        </article>
-
-        <div class="flows reveal" aria-labelledby="flows-title">
-          <p class="eyebrow">Inside Bizznify</p>
-          <h3 id="flows-title" class="flows__title">One record connects sales, stock, fleet and books</h3>
           <div class="ftabs" role="tablist" aria-label="Business type">
           <button type="button" role="tab" id="ft-retail" aria-controls="fp-retail" aria-selected="true">Retail and trading</button>
           <button type="button" role="tab" id="ft-log" aria-controls="fp-log" aria-selected="false">Logistics and fleet</button>
@@ -183,7 +168,8 @@
           </ol>
           <div class="freports"><b>Reports you can open:</b><span>Stock by warehouse</span><span>Stock audit</span><span>Goods received</span></div>
         </div>
-        </div>
+          <p class="work__built"><b>Built with</b> Django, DRF, PostgreSQL, Celery, Redis, React, AWS · role-based access, automated PDF reports, Docker on AWS with CI/CD</p>
+        </article>
       </div>
     </section>
 

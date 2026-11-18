@@ -61,7 +61,12 @@ a:hover { text-decoration-color: var(--accent); color: var(--accent); }
 
 /* Work */
 .work { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: start; padding: 0 0 88px; }
-.work--flip { grid-template-columns: 1fr 1.05fr; }
+.work--solo { display: block; }
+.work__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; margin-bottom: 32px; }
+.work__head .work__lead { max-width: 40em; margin-bottom: 0; }
+.work__head .btn { flex: none; margin-top: 28px; }
+.work--solo .ftabs { margin-bottom: 20px; }
+.work--solo .work__built { margin: 24px 0 0; }
 .work + .work { padding-top: 88px; border-top: 1px solid var(--line); }
 .work:last-child { padding-bottom: 0; }
 .work__media img { border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 1px 0 var(--line), 0 18px 40px -24px rgba(0,0,0,.35); }
@@ -100,7 +105,7 @@ a:hover { text-decoration-color: var(--accent); color: var(--accent); }
 .freports b { font-weight: 600; margin-right: 6px; }
 .freports span { background: rgba(255,255,255,.72); padding: 6px 12px; border-radius: 999px; font-size: .85rem; }
 @media (max-width: 960px) { .flow { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 820px) { .fpanel { padding: 24px 18px; } .flow { grid-template-columns: repeat(2, 1fr); } .flows { padding-top: 48px; } }
+@media (max-width: 820px) { .work__head { flex-direction: column; gap: 16px; } .work__head .btn { margin-top: 0; } .fpanel { padding: 24px 18px; } .flow { grid-template-columns: repeat(2, 1fr); } .flows { padding-top: 48px; } }
 
 /* Experience + skills */
 .split { display: grid; grid-template-columns: 1.15fr 1fr; gap: 88px; }
