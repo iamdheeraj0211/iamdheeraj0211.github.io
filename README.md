@@ -6,8 +6,8 @@ Plain HTML, CSS and a little JavaScript: no build step, no framework, no trackin
 
 ## Edit
 - **Content:** `index.html`. Each section is marked: Hero, Products, Experience, Skills, About, Contact.
-- **Look:** `styles.css`. Colours are at the top: dark by default, light for light-mode visitors.
-- **Behaviour:** `main.js` (scroll reveal, active nav link, copy email, resume button, footer year).
+- **Look:** `styles.css`. Colours are at the top: light (paper) by default, dark for dark-mode visitors.
+- **Behaviour:** `main.js` (scroll reveal, active nav link, copy email, resume button, footer year; no cursor or terminal effects on purpose).
 - **Resume:** put the PDF at `resume.pdf`. The "Download resume" button appears by itself once it's there.
 - **EarlyApply store link:** the "Add to Chrome" button points at the Chrome Web Store listing (ID mdnefacoafkpdmbnjdaijlgahjnebgbo).
 - **Bizznify:** replace `assets/bizznify-placeholder.svg` with real screenshots at launch, and remove the "Launching soon" badge.
