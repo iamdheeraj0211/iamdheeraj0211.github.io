@@ -61,6 +61,7 @@ a:hover { text-decoration-color: var(--accent); color: var(--accent); }
 
 /* Work */
 .work { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: start; padding: 0 0 88px; }
+.work--flip { grid-template-columns: 1fr 1.05fr; }
 .work + .work { padding-top: 88px; border-top: 1px solid var(--line); }
 .work:last-child { padding-bottom: 0; }
 .work__media img { border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 1px 0 var(--line), 0 18px 40px -24px rgba(0,0,0,.35); }
