@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -121,6 +121,69 @@
             <img src="assets/bizznify.png" width="1200" height="630" alt="Bizznify: sales, stock, fleet and books, finally connected. Cloud ERP for small and growing businesses" loading="lazy">
           </div>
         </article>
+
+        <div class="flows reveal" aria-labelledby="flows-title">
+          <p class="eyebrow">Inside Bizznify</p>
+          <h3 id="flows-title" class="flows__title">One record connects sales, stock, fleet and books</h3>
+          <div class="ftabs" role="tablist" aria-label="Business type">
+          <button type="button" role="tab" id="ft-retail" aria-controls="fp-retail" aria-selected="true">Retail and trading</button>
+          <button type="button" role="tab" id="ft-log" aria-controls="fp-log" aria-selected="false">Logistics and fleet</button>
+          <button type="button" role="tab" id="ft-mfg" aria-controls="fp-mfg" aria-selected="false">Manufacturing</button>
+          <button type="button" role="tab" id="ft-wh" aria-controls="fp-wh" aria-selected="false">Warehouse</button>
+          </div>
+        <div class="fpanel" id="fp-retail" role="tabpanel" aria-labelledby="ft-retail" style="--t1:#FBF3E6;--t2:#F5E7CF">
+          <h4>A sale, the tax, the stock and the payment.</h4>
+          <p>Bill fast with the right tax, keep stock right, and see clearly who still owes you.</p>
+          <ol class="flow">
+            <li><span class="m">step 1</span><span class="t">Customer</span><span class="d">Picked or added</span></li>
+            <li><span class="m">step 2</span><span class="t">Invoice</span><span class="d">Right tax added</span></li>
+            <li><span class="m">step 3</span><span class="t">Stock drops</span><span class="d">By itself</span></li>
+            <li><span class="m">step 4</span><span class="t">Sent</span><span class="d">PDF to customer</span></li>
+            <li><span class="m">step 5</span><span class="t">Paid</span><span class="d">Payment recorded</span></li>
+            <li><span class="m">step 6</span><span class="t">Who owes you</span><span class="d">Overdue list</span></li>
+          </ol>
+          <div class="freports"><b>Reports you can open:</b><span>Billed today</span><span>Overdue invoices</span><span>Payments in</span></div>
+        </div>
+        <div class="fpanel" id="fp-log" role="tabpanel" aria-labelledby="ft-log" style="--t1:#F1EEFB;--t2:#E4DEF6">
+          <h4>An order goes out on your own truck.</h4>
+          <p>The dispatch, the trip and the freight invoice come from the same record. Nothing is typed twice.</p>
+          <ol class="flow">
+            <li><span class="m">step 1</span><span class="t">Order in</span><span class="d">Customer orders 6,000 L</span></li>
+            <li><span class="m">step 2</span><span class="t">Truck loaded</span><span class="d">Dispatch · stock out</span></li>
+            <li><span class="m">step 3</span><span class="t">Trip started</span><span class="d">TRP-00208 · driver assigned</span></li>
+            <li><span class="m">step 4</span><span class="t">Delivered</span><span class="d">Proof of delivery</span></li>
+            <li><span class="m">step 5</span><span class="t">Billed</span><span class="d">Bill Trip · freight invoice</span></li>
+            <li><span class="m">step 6</span><span class="t">Trip completed</span><span class="d">Expense vs revenue</span></li>
+          </ol>
+          <div class="freports"><b>Reports you can open:</b><span>Cost per KM</span><span>Revenue per trip</span><span>Vehicle documents expiring</span></div>
+        </div>
+        <div class="fpanel" id="fp-mfg" role="tabpanel" aria-labelledby="ft-mfg" style="--t1:#EAF2FB;--t2:#DCE8F6">
+          <h4>An order becomes a product, then a bill.</h4>
+          <p>Raw material in, finished goods out, and the real cost of each unit worked out.</p>
+          <ol class="flow">
+            <li><span class="m">step 1</span><span class="t">Order in</span><span class="d">200 × Grease 5 kg</span></li>
+            <li><span class="m">step 2</span><span class="t">Materials checked</span><span class="d">Bill of materials</span></li>
+            <li><span class="m">step 3</span><span class="t">Production run</span><span class="d">Run PR-31</span></li>
+            <li><span class="m">step 4</span><span class="t">Into stock</span><span class="d">Finished goods +200</span></li>
+            <li><span class="m">step 5</span><span class="t">Invoiced</span><span class="d">Tax added</span></li>
+            <li><span class="m">step 6</span><span class="t">Cost known</span><span class="d">Cost per unit</span></li>
+          </ol>
+          <div class="freports"><b>Reports you can open:</b><span>Cost per unit</span><span>Production runs</span><span>Material used</span></div>
+        </div>
+        <div class="fpanel" id="fp-wh" role="tabpanel" aria-labelledby="ft-wh" style="--t1:#E8F5EF;--t2:#D7EDE3">
+          <h4>Goods come in, goods go out, books match.</h4>
+          <p>Stock across all your sites, purchase in and sales out, and audits that match the books.</p>
+          <ol class="flow">
+            <li><span class="m">step 1</span><span class="t">Purchase order</span><span class="d">PO-118 to supplier</span></li>
+            <li><span class="m">step 2</span><span class="t">Goods received</span><span class="d">+300 into Site A</span></li>
+            <li><span class="m">step 3</span><span class="t">Stock live</span><span class="d">Per warehouse</span></li>
+            <li><span class="m">step 4</span><span class="t">Sold</span><span class="d">Invoice · stock out</span></li>
+            <li><span class="m">step 5</span><span class="t">Stock audit</span><span class="d">Count vs books</span></li>
+            <li><span class="m">step 6</span><span class="t">Matched</span><span class="d">Gaps explained</span></li>
+          </ol>
+          <div class="freports"><b>Reports you can open:</b><span>Stock by warehouse</span><span>Stock audit</span><span>Goods received</span></div>
+        </div>
+        </div>
       </div>
     </section>
 
@@ -203,6 +266,6 @@
     </div>
   </footer>
 
-  <script src="main.js?v=2"></script>
+  <script src="main.js?v=3"></script>
 </body>
 </html>

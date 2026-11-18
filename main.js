@@ -56,6 +56,30 @@
       .catch(() => {});
   }
 
+  // Bizznify flows: show one business type at a time (all are visible without JS).
+  const ftabs = [...document.querySelectorAll('.ftabs [role="tab"]')];
+  const show = (tab) => {
+    ftabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  };
+  if (ftabs.length) {
+    ftabs.forEach((t, i) => {
+      t.addEventListener('click', () => show(t));
+      t.addEventListener('keydown', (e) => {
+        const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!step) return;
+        const next = ftabs[(i + step + ftabs.length) % ftabs.length];
+        next.focus();
+        show(next);
+      });
+    });
+    show(ftabs[0]);
+  }
+
   // Footer year.
   const year = document.querySelector('[data-year]');
   if (year) year.textContent = String(new Date().getFullYear());
